@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import validator from 'validator'
+import countryList from './countries'
 
 const FeedbackForm = () => {
   const [firstName, setFirstName] = useState('')
@@ -77,7 +78,9 @@ const FeedbackForm = () => {
           <input
             type="search"
             name="country"
+            list="countries"
             placeholder="Seach Country"
+            autoComplete="none"
             value={country}
             onChange={e => setCountry(e.target.value)}
           />
@@ -87,6 +90,11 @@ const FeedbackForm = () => {
             alt=""
             style={{ height: '1em' }}
           />
+          <datalist id="countries">
+            {countryList.map(country => (
+              <option>{country}</option>
+            ))}
+          </datalist>
         </div>
         <label className="label" htmlFor="email">
           Email ID:
@@ -100,7 +108,6 @@ const FeedbackForm = () => {
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
-
           <p
             style={{
               color: 'red',
