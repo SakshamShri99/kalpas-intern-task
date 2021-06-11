@@ -10,6 +10,7 @@ const FeedbackToggler = () => {
       document.getElementById('view-toggler').style.display = 'none'
       document.getElementById('feedback-button').style.background = '#F2A7A9'
       document.getElementById('news-panel').style.filter = 'blur(5px)'
+      document.getElementById('news-panel').style.pointerEvents = 'none'
       setFormVisible(true)
     } else {
       document.getElementById('sidebar').classList.remove('feedback-active')
@@ -17,6 +18,7 @@ const FeedbackToggler = () => {
       document.getElementById('feedback-form').classList.add('not-active')
       document.getElementById('feedback-button').style.background = '#98efc9'
       document.getElementById('news-panel').style.filter = 'none'
+      document.getElementById('news-panel').style.pointerEvents = 'initial'
       setFormVisible(false)
     }
   }

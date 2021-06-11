@@ -6,12 +6,12 @@ const Pagination = ({ count, setSkip }) => {
   const [next, setNext] = useState(3)
 
   const nextPage = e => {
+    setSkip(current)
     if (next < count) {
       setPrev(prev => prev + 1)
       setCurrent(current => current + 1)
       setNext(next => next + 1)
     }
-    setSkip(current)
     if (next === count) {
       document
         .getElementById('pagination')
@@ -40,12 +40,12 @@ const Pagination = ({ count, setSkip }) => {
   }
 
   const prevPage = e => {
+    setSkip(current)
     if (prev > 1) {
       setPrev(prev => prev - 1)
       setCurrent(current => current - 1)
       setNext(next => next - 1)
     }
-    setSkip(current)
     if (prev === 1) {
       document
         .getElementById('pagination')
@@ -74,6 +74,7 @@ const Pagination = ({ count, setSkip }) => {
   }
 
   const midPage = e => {
+    setSkip(current)
     if (!e.target.classList.contains('page-active')) {
       document
         .getElementById('pagination')

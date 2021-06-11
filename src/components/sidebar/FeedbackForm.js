@@ -20,12 +20,14 @@ const FeedbackForm = () => {
       setTimeout(() => {
         setErrorEmail('')
       }, 5000)
+      return
     }
     if (!validator.isMobilePhone(countryCode + phoneNumber)) {
       setErrorPhone('PLease enter a valid phone number')
       setTimeout(() => {
         setErrorPhone('')
       }, 5000)
+      return
     }
   }
 
